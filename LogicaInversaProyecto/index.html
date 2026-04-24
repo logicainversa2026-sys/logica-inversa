@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica Inversa | Desarrolla tu pensamiento crítico</title>
+    <meta name="description" content="Lógica Inversa es una plataforma interactiva basada en IA que te ayuda a desafiar tus ideas, cazar alucinaciones y desarmar verdades.">
+    
+    <!-- Google Fonts: Syne para títulos, Inter para el cuerpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Fondo animado -->
+    <div class="ambient-background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
+
+    <!-- Aplicación Principal -->
+    <main id="app">
+        <header class="app-header glass-panel">
+            <div class="logo">Lógica <span>Inversa</span></div>
+            <nav class="module-nav">
+                <button class="nav-btn active" data-target="mod1">
+                    <span class="nav-number">1</span> Socio Socrático
+                </button>
+                <button class="nav-btn" data-target="mod2">
+                    <span class="nav-number">2</span> Cazador de Alucinaciones
+                </button>
+                <button class="nav-btn" data-target="mod3">
+                    <span class="nav-number">3</span> Desarmador de Verdades
+                </button>
+            </nav>
+        </header>
+
+        <div class="modules-container">
+            <!-- MÓDULO 1: Socio Socrático -->
+            <section id="mod1" class="module active glass-panel">
+                <div class="module-header">
+                    <span class="module-badge badge-violet">Módulo 01</span>
+                    <h2><em>Socio</em> Socrático</h2>
+                    <p>Presenta una idea o argumento. La inteligencia artificial no te dará la razón, sino que <strong>refutará sistemáticamente</strong> tu postura para obligarte a defenderla y construir un conocimiento sólido.</p>
+                </div>
+                
+                <div class="module-content">
+                    <div class="chat-container" id="chat-socratico">
+                        <div class="message ai-message">
+                            <div class="avatar ai-avatar">S</div>
+                            <div class="bubble">Bienvenido/a. Escribe tu idea, tesis o lo que te dijo la IA. Mi trabajo no es darte la razón, sino cuestionarla y poner a prueba tu lógica.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-area">
+                        <label for="input-socratico">Tu argumento o idea</label>
+                        <textarea id="input-socratico" placeholder="Escribe aquí tu idea..."></textarea>
+                        <div class="actions">
+                            <button class="btn-text" id="btn-reset-1">Reiniciar debate</button>
+                            <button class="btn-primary btn-violet" id="btn-send-1">Desafiar idea</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MÓDULO 2: Cazador de Alucinaciones -->
+            <section id="mod2" class="module glass-panel hidden">
+                <div class="module-header">
+                    <span class="module-badge badge-magenta">Módulo 02</span>
+                    <h2><em>Cazador</em> de Alucinaciones</h2>
+                    <p>Pega un texto generado por IA. El sistema identificará <strong>posibles errores factuales o alucinaciones</strong>. Tu objetivo es encontrarlos en el texto subrayado.</p>
+                </div>
+
+                <div class="module-content">
+                    <div class="input-area">
+                        <label for="input-halluc">Texto generado por IA a analizar</label>
+                        <textarea id="input-halluc" placeholder="Pega aquí el texto que deseas analizar..."></textarea>
+                        <div class="actions">
+                            <button class="btn-text" id="btn-reset-2">Limpiar texto</button>
+                            <button class="btn-primary btn-magenta" id="btn-send-2">Buscar Alucinaciones</button>
+                        </div>
+                    </div>
+
+                    <div id="halluc-results" class="results-container hidden">
+                        <div class="results-header">
+                            <p>Haz clic en los fragmentos subrayados que crees que contienen errores:</p>
+                            <div class="score-pill"><span id="score-count">0</span> / <span id="score-total">0</span> encontrados</div>
+                        </div>
+                        <div id="halluc-text" class="text-document"></div>
+                        
+                        <div class="reveal-section">
+                            <button class="btn-secondary" id="btn-reveal">Revelar análisis completo</button>
+                        </div>
+                        
+                        <div id="halluc-feedback" class="feedback-panel hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MÓDULO 3: Desarmador de Verdades -->
+            <section id="mod3" class="module glass-panel hidden">
+                <div class="module-header">
+                    <span class="module-badge badge-fuchsia">Módulo 03</span>
+                    <h2><em>Desarmador</em> de Verdades</h2>
+                    <p>Ingresa un discurso, noticia o argumento. Esta herramienta separará los <strong>juicios de valor (opiniones)</strong> de las <strong>evidencias (hechos comprobables)</strong>.</p>
+                </div>
+
+                <div class="module-content">
+                    <div class="input-area">
+                        <label for="input-truth">Discurso o texto a descomponer</label>
+                        <textarea id="input-truth" placeholder="Pega aquí el texto para desarmar..."></textarea>
+                        <div class="actions">
+                            <button class="btn-text" id="btn-reset-3">Limpiar texto</button>
+                            <button class="btn-primary btn-fuchsia" id="btn-send-3">Desarmar Verdad</button>
+                        </div>
+                    </div>
+
+                    <div id="truth-results" class="results-container hidden">
+                        <div class="truth-grid">
+                            <div class="truth-column column-opinions">
+                                <h3><span class="icon">⚠️</span> Juicios de Valor</h3>
+                                <ul id="list-opinions"></ul>
+                            </div>
+                            <div class="truth-column column-facts">
+                                <h3><span class="icon">✅</span> Evidencias Comprobables</h3>
+                                <ul id="list-facts"></ul>
+                            </div>
+                        </div>
+                        <div class="truth-conclusion">
+                            <h4>Conclusión del Análisis</h4>
+                            <p id="truth-conclusion-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
